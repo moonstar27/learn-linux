@@ -20,18 +20,18 @@ Linux系统作为一个偏重效率及稳定性的操作系统，命令行模式
 
 **Linux的安装不同于windows server的安装引导过程，在实际服务器中，不需要额外的服务器厂家的引导系统来安装，只需将Linux系统的安装介质插入服务器，可直接进行安装过程，避免很多不兼容和问题的出现**。
 
-1、注意提前规划好系统磁盘所需的空间
+- 注意提前规划好系统磁盘所需的空间
 必要的分区:  
-- / 根 合理分配 作为Linux系统最重要的分区，应留有足够的空间已满足后续的使用。
-- /boot 启动分区 作为系统引导分区使用
-- swap 交换分区  swap类似windows的虚拟内存/page file，内存小于2G时，设置为内存的2倍；内存大于或等于2G时，设置为2G
+1./ 根 合理分配 作为Linux系统最重要的分区，应留有足够的空间已满足后续的使用。
+2./boot 启动分区 作为系统引导分区使用
+3.swap 交换分区  swap类似windows的虚拟内存/page file，内存小于2G时，设置为内存的2倍；内存大于或等于2G时，设置为2G
 **用于正式生产的服务器，切记必须把数据盘单独分区，防止系统出问题时，保证数据的完整性。
 比如可以再划分一个/data专门用来存放数据**。
 >Centos6模式磁盘格式为ext4，Centos7默认磁盘格式为xfs
 
-2、在选择时区的安装界面，注意取消system clock users UTC 避免出现系统将现有时间当做UTC（格林尼治时间）使用。
+- 在选择时区的安装界面，注意取消system clock users UTC 避免出现系统将现有时间当做UTC（格林尼治时间）使用。
 
-3、安装过程中使用组合键 
+- 安装过程中使用组合键 
 ctrl+alt+f1 进入安装命令状态
 ctrl+alt+f2 进入命令行
 ctrl+alt+f3 提示信息
@@ -39,7 +39,7 @@ ctrl+alt+f4 日志信息
 ctrl+alt+f5 安装信息
 ctrl+alt+f6 返回图形化界面
 
-4、默认安装模式是：Minimal(最小) 实际生产环境中常用，作为学习环境可选择Desktop (桌面)
+- 默认安装模式是：Minimal(最小) 实际生产环境中常用，作为学习环境可选择Desktop (桌面)
 
 ### 2. Linux系统基础 
 - 系统用户
@@ -47,13 +47,13 @@ root 超级用户 *类似windows中的administrator，实际生产环境不要�
 user 普通用户 *权限较低，仅可对系统进行基础操作，无特殊权限*。
 
 - 工作终端terminal
-设备终端
+1.设备终端
 键盘鼠标显示器
-物理终端（/dev/console ）
+2.物理终端（/dev/console ）
 控制台console
-虚拟终端(tty：teletypewriters，/dev/tty# #为[1-6])
+3.虚拟终端(tty：teletypewriters，/dev/tty# #为[1-6])
 tty可有n个，**Ctrl+Alt+F[1-6]可快读切换终端界面**
-图形终端（/dev/tty7 ）startx, xwindows 
+4.图形终端（/dev/tty7 ）startx, xwindows 
 CentOS 6: Ctrl + Alt + F7
 CentOS 7: 在哪个终端启动，即位于哪个虚拟终端
 runlevel 查看运行级别
@@ -61,9 +61,9 @@ init 3 命令行模式
 init 5 图形化模式
 init 0 关机
 inti 6 重启
-串行终端（/dev/ttyS# ）
+5.串行终端（/dev/ttyS# ）
 ttyS
-伪终端（pty：pseudo-tty，/dev/pts/# ）
+6.伪终端（pty：pseudo-tty，/dev/pts/# ）
 pty, SSH远程连接
 查看当前的终端设备：
 tty
