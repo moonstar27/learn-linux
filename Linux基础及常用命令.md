@@ -115,7 +115,7 @@ date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 
 ### Linux系统命令
 
-- **命令提示符**：
+1.**命令提示符**：
 - [root@localhost~]#
 #管理员
 $普通用户
@@ -129,17 +129,17 @@ $普通用户
 \t 24小时时间格式\T 12小时时间格式
 \! 命令历史数\# 开机后命令历史数
 
-- **Shell命令**：
+2.**Shell命令**：
 Shell命令分为内部命令和外部命令
 使用`type command`查询
-- **内部命令**：由shell自带的，而且通过某命令形式提供
+3.**内部命令**：由shell自带的，而且通过某命令形式提供
 - help 内部命令列表
 - enable cmd 启用内部命令
 - enable –n cmd 禁用内部命令
 - enable –n  查看所有禁用的内部命令
-- **外部命令**：在文件系统路径下有对应的可执行程序文件
+4.**外部命令**：在文件系统路径下有对应的可执行程序文件
 查看路径：which -a |--skip-alias; whereis
-- **命令的读取顺序**：
+5.**命令的读取顺序**：
 - alias（别名） =1、hash表(缓存)  2、$PATH
 - hash常见用法
 hash 显示hash缓存
@@ -148,7 +148,7 @@ hash –p path name 将命令全路径path起别名为name
 hash –t name 打印缓存中name的路径
 hash –d name 清除name缓存
 hash –r 清除缓存
-- **命令别名**
+6.**命令别名**
 - 显示当前shell进程所有可用的命令别名
 `alias`
 - 定义别名NAME，其相当于执行命令VALUE
@@ -170,7 +170,7 @@ unalias[-a] name [name ...]
 `‘ALIASNAME’`
 `command ALIASNAME`
 `/path/commmand`
-- **命令格式**
+7.**命令格式**
 - **`COMMAND [OPTIONS...] [ARGUMENTS...]`**
 - 选项：用于启用或关闭命令的某个或某些功能
 - 短选项：-c 例如：-l, -h
@@ -181,7 +181,7 @@ unalias[-a] name [name ...]
 取消和结束命令执行：Ctrl+c，Ctrl+d
 多个命令可以用 `;` 符号分开
 一个命令可以用 `\` 分成多行
-- **命令行扩展、被括起来的集合**
+8.**命令行扩展、被括起来的集合**
 - 命令行扩展：$( ) 或``
 - 把一个命令的输出打印给另一个命令的参数
 `echo"Thissystem'snameis$(hostname) "
@@ -195,10 +195,10 @@ rm-ffile{1,3,5}
 echo {1..10}
 echo {a..z}
 echo {000..20..2}
-**tab键补全命令**
+9.**tab键补全命令**
 - 命令补全:用户给定的字符串只有一条惟一对应的命令，直接补全;否则，再次Tab会给出列表
 - 路径补全:如果惟一：则直接补全;否则：再次Tab给出列表
-**命令行历史**
+10.**命令行历史**
 - 保存你输入的命令历史。可以用它来重复执行命令
 - 登录shell时，会读取命令历史文件中记录下的命令"~/.bash_history"
 - 登录进shell后新执行的命令只会记录在缓存中；这些命令会用户退出时“追加”至命令历史文件中
@@ -228,7 +228,7 @@ echo {000..20..2}
 !$ 表示
 Esc, .（点击Esc键后松开，然后点击. 键）
 Alt+ .（按住Alt键的同时点击. 键）
-**bash的快捷键**
+11.**bash的快捷键**
 - Ctrl + l清屏，相当于clear命令
 - Ctrl + o执行当前命令，并重新显示本命令
 - Ctrl + s阻止屏幕输出，锁定
@@ -259,120 +259,25 @@ Alt+ .（按住Alt键的同时点击. 键）
 - 注意：Alt组合快捷键经常和其它软件冲突
 
 ### Linux常用命令
-1.halt, poweroff 关机
-2.reboot 重启
--f: 强制，不调用shutdown
--p: 切断电源
-3.shutdown 关机或重启
-- shutdown [OPTION]... [TIME] [MESSAGE]
-*-r: reboot*
-*-h: halt*
-*-c：cancel*
-*TIME：无指定，默认相当于+1（CentOS7）
-now: 立刻,相当于+0
-+m: 相对时间表示法，几分钟之后；例如+3
-hh:mm: 绝对时间表示，指明具体时间*
-4.whoami: 显示当前登录有效用户
-5.who: 系统当前所有的登录会话
-w: 系统当前所有的登录会话及所做的操作
-6.nano:文本编辑器 ctrl+x 退出编辑
-7.echo：echo [-neE][字符串]
-- -E （默认）不支持\解释功能
-- -n 不自动换行
-- -e 启用\字符的解释功能
-- 显示变量
-- echo "$VAR_NAME” 变量会替换，弱引用
-- echo '$VAR_NAME’ 变量不会替换，强引用
-- 启用命令选项-e，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出
-- \a 发出警告声
-- \b 退格键
-- \c 最后不加上换行符号
-- \n 换行且光标移至行首
-- \r 回车，即光标移至行首，但不换行
-- \t 插入tab
-- \\插入\字符
-8.screen：
-- 创建新screen会话
-screen –S [SESSION]
-- 加入screen会话
-screen –x [SESSION]
-- 退出并关闭screen会话
-exit
-- 剥离当前screen会话
-Ctrl+a,d
-- 显示所有已经打开的screen会话
-screen -ls
-- 恢复某screen会话
-screen -r [SESSION]
-9.history:
-- history [-c] [-d offset] [n]
-history -anrw[filename]
-history -psarg[arg...]
-- -c: 清空命令历史
-- -d offset: 删除历史中指定的第offset个命令
--  n: 显示最近的n条历史
-- -a: 追加本次会话新执行的命令历史列表至历史文件
-- -r: 读历史文件附加到历史列表
-- -w: 保存历史列表到指定的历史文件
-- -n: 读历史文件中未读过的行到历史列表
-- -p: 展开历史参数成多行，但不存在历史列表中
-- -s: 展开历史参数成一行，附加在历史列表后
-- HISTSIZE：命令历史记录的条数 `echo $HISTSIZE`
-- HISTFILE：指定历史文件，默认为~/.bash_history
-- HISTFILESIZE：命令历史文件记录历史的条数
-- HISTTIMEFORMAT=“%F %T “ 显示时间
-- HISTIGNORE=“str1:str2*:… “ 忽略str1命令，str2开头的历史
-- 控制命令历史的记录方式：
-- 环境变量：HISTCONTROL
-- ignoredups默认，忽略重复的命令，连续且相同为“重复”
-- ignorespace忽略所有以空白开头的命令
-- ignoreboth相当于ignoredups, ignorespace的组合
-- erasedups删除重复命令
-- export 变量名="值“
-- 存放在/etc/profile 或~/.bash_profile
-
-
-### 读取系统帮助 
-1.whatis
-- 显示命令的简短描述
-使用数据库
-刚安装后不可立即使用
-makewhatis| mandb制作数据库
-使用示例：whatis cal
-2.command--help
-- 显示用法总结和参数列表
-示例：date --help
-3.man
-`man –a keyword`、`man [章节] keyword`
-- 提供命令帮助的文件
-- 手册页存放在/usr/share/man
-- 几乎每个命令都有man的“页面”
-- man页面分组为不同的“章节”
-- man命令的配置文件：/etc/man.config| man_db.conf
-1：**用户命令**
-2：系统调用
-3：C库调用
-4：**设备文件及特殊文件**
-5：**配置文件格式**
-6：游戏
-7：杂项
-8：**管理类的命令**
-9：Linux 内核API
-- man命令的操作方法：
-space: 向文件尾翻屏
-b: 向文件首部翻屏
-d: 向文件尾部翻半屏
-u: 向文件首部翻半屏
-q: 退出
-4.info
-- info 页面的结构就像一个网站
-方向键，PgUp，PgDn导航
-Tab键移动到下一个链接
-d 显示主题目录
-Home 显示主题首部
-Enter进入选定链接
-n/p/u/l进入下/前/上一层/最后一个链接
-s文字文本搜索
-q退出info
-5./usr/share/doc/
-- 多数安装了的软件包的子目录,包括了这些软件的相关原理说明
+| 系统命令 | 含义 | 参数 |
+| ------ | ------ | ------ |
+| halt, poweroff | 关机 | 
+| reboot | 重启 | -f: 强制，不调用shutdown;-p: 切断电源 |
+| shutdown | 关机或重启 | -r: reboot; -h: halt; -c：cancel; TIME; now; hh:mm:
+| cd | 改变工作目录 | cd ~:用户的主目录、cd ~username切换到指定用户的主目录 |
+| pwd | 显示当前目录 |
+| ls | 显示指定路径下的文件列表 |-a:显示所有文件（包括隐藏）、-l:显示文件的元数据信息、-h:带字节显示、-d:显示目录本身的属性 |
+| cat | 连续的显示文件的内容 | cat file查看文件内容 |
+| echo | 回显命令 | -n 不自动换行、-e 启用\字符的解释功能、echo "$VAR_NAME” 变量会替换，弱引用
+echo '$VAR_NAME’ 变量不会替换，强引用|
+| which | 显示应用程序文件位置 |
+| whatis | 显示命令的帮助信息位置 | Centos6:makewhatis、 Centos7:mandb制作数据库 |
+| screen | 窗口管理器的命令行界面版本 | 新会话screen –S、加入screen –x、剥离会话Ctrl+a,d、显示所有会话screen -ls、恢复会话screen -r |
+| history | 显示命令的帮助信息位置 | 清空-c、删除指定命令-d、显示最近命令n、追加本次会话新执行的命令历史列表至历史文件-a、读历史文件附加到历史列表-r、读历史文件中未读过的行到历史列表-n |
+| HISTSIZE | 命令历史记录的条数 | echo $HISTSIZE |
+| HISTFILE | 指定历史文件 | 默认为~/.bash_history |
+| HISTFILESIZE | 命令历史文件记录历史的条数 |
+| --help | 显示用法总结和参数列表 | date --help |
+| man | 提供命令帮助的文件 | 手册页存放在/usr/share/man、man命令的配置文件：/etc/man.config、 man_db.conf、1：**用户命令**、4：**设备文件及特殊文件**、5：**配置文件格式**、8：**管理类的命令**、**man命令的操作方法**：space: 向文件尾翻屏 b: 向文件首部翻屏 d: 向文件尾部翻半屏 u: 向文件首部翻半屏 q: 退出 |
+| info | GNU工具info适合通用文档参考 | 方向键，PgUp，PgDn导航、Tab键移动到下一个链接、d 显示主题目录、Home 显示主题首部、Enter进入选定链接、n/p/u/l进入下/前/上一层/最后一个链接、s文字文本搜索、q退出info |
+| /usr/share/doc/ | 多数安装了的软件包的子目录,包括了这些软件的相关原理说明 |
