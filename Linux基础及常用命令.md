@@ -268,8 +268,8 @@ Alt+ .（按住Alt键的同时点击. 键）
 | pwd | 显示当前目录 |
 | ls | 显示指定路径下的文件列表 |-a:显示所有文件（包括隐藏）、-l:显示文件的元数据信息、-h:带字节显示、-d:显示目录本身的属性 |
 | cat | 连续的显示文件的内容 | cat file查看文件内容 |
-| echo | 回显命令 | -n 不自动换行、-e 启用\字符的解释功能、echo "$VAR_NAME” 变量会替换，弱引用
-echo '$VAR_NAME’ 变量不会替换，强引用|
+| echo | 回显命令 | -n 不自动换行、-e 启用\字符的解释功能、"echo "$VAR_NAME” 变量会替换，弱引用"
+"echo '$VAR_NAME’ 变量不会替换，强引用"|
 | which | 显示应用程序文件位置 |
 | whatis | 显示命令的帮助信息位置 | Centos6:makewhatis、 Centos7:mandb制作数据库 |
 | screen | 窗口管理器的命令行界面版本 | 新会话screen –S、加入screen –x、剥离会话Ctrl+a,d、显示所有会话screen -ls、恢复会话screen -r |
