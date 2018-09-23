@@ -117,8 +117,8 @@ date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 
 1.**命令提示符**：
 - [root@localhost~]#
-#管理员
-$普通用户
+'#管理员'
+'$普通用户'
 - 显示提示符格式
 [root@localhost~]#echo $PS1
 修改提示符格式
@@ -132,13 +132,16 @@ $普通用户
 2.**Shell命令**：
 Shell命令分为内部命令和外部命令
 使用`type command`查询
+
 3.**内部命令**：由shell自带的，而且通过某命令形式提供
 - help 内部命令列表
 - enable cmd 启用内部命令
 - enable –n cmd 禁用内部命令
 - enable –n  查看所有禁用的内部命令
+- 
 4.**外部命令**：在文件系统路径下有对应的可执行程序文件
 查看路径：which -a |--skip-alias; whereis
+
 5.**命令的读取顺序**：
 - alias（别名） =1、hash表(缓存)  2、$PATH
 - hash常见用法
@@ -148,6 +151,7 @@ hash –p path name 将命令全路径path起别名为name
 hash –t name 打印缓存中name的路径
 hash –d name 清除name缓存
 hash –r 清除缓存
+
 6.**命令别名**
 - 显示当前shell进程所有可用的命令别名
 `alias`
@@ -170,6 +174,7 @@ unalias[-a] name [name ...]
 `‘ALIASNAME’`
 `command ALIASNAME`
 `/path/commmand`
+
 7.**命令格式**
 - **`COMMAND [OPTIONS...] [ARGUMENTS...]`**
 - 选项：用于启用或关闭命令的某个或某些功能
@@ -181,6 +186,7 @@ unalias[-a] name [name ...]
 取消和结束命令执行：Ctrl+c，Ctrl+d
 多个命令可以用 `;` 符号分开
 一个命令可以用 `\` 分成多行
+
 8.**命令行扩展、被括起来的集合**
 - 命令行扩展：$( ) 或``
 - 把一个命令的输出打印给另一个命令的参数
@@ -195,9 +201,11 @@ rm-ffile{1,3,5}
 echo {1..10}
 echo {a..z}
 echo {000..20..2}
+
 9.**tab键补全命令**
 - 命令补全:用户给定的字符串只有一条惟一对应的命令，直接补全;否则，再次Tab会给出列表
 - 路径补全:如果惟一：则直接补全;否则：再次Tab给出列表
+- 
 10.**命令行历史**
 - 保存你输入的命令历史。可以用它来重复执行命令
 - 登录shell时，会读取命令历史文件中记录下的命令"~/.bash_history"
@@ -228,6 +236,7 @@ echo {000..20..2}
 !$ 表示
 Esc, .（点击Esc键后松开，然后点击. 键）
 Alt+ .（按住Alt键的同时点击. 键）
+
 11.**bash的快捷键**
 - Ctrl + l清屏，相当于clear命令
 - Ctrl + o执行当前命令，并重新显示本命令
@@ -268,8 +277,7 @@ Alt+ .（按住Alt键的同时点击. 键）
 | pwd | 显示当前目录 |
 | ls | 显示指定路径下的文件列表 |-a:显示所有文件（包括隐藏）、-l:显示文件的元数据信息、-h:带字节显示、-d:显示目录本身的属性 |
 | cat | 连续的显示文件的内容 | cat file查看文件内容 |
-| echo | 回显命令 | -n 不自动换行、-e 启用\字符的解释功能、"echo "$VAR_NAME” 变量会替换，弱引用"
-"echo '$VAR_NAME’ 变量不会替换，强引用"|
+| echo | 回显命令 | -n 不自动换行、-e 启用\字符的解释功能、echo " " 变量会替换，弱引用、echo ' ' 变量不会替换，强引用 |
 | which | 显示应用程序文件位置 |
 | whatis | 显示命令的帮助信息位置 | Centos6:makewhatis、 Centos7:mandb制作数据库 |
 | screen | 窗口管理器的命令行界面版本 | 新会话screen –S、加入screen –x、剥离会话Ctrl+a,d、显示所有会话screen -ls、恢复会话screen -r |
