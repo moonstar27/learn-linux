@@ -115,7 +115,7 @@ date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 
 ### Linux系统命令
 
-**命令提示符**：
+- **命令提示符**：
 - [root@localhost~]#
 #管理员
 $普通用户
@@ -129,17 +129,17 @@ $普通用户
 \t 24小时时间格式\T 12小时时间格式
 \! 命令历史数\# 开机后命令历史数
 
-**Shell命令**：
+- **Shell命令**：
 Shell命令分为内部命令和外部命令
 使用`type command`查询
-**内部命令**：由shell自带的，而且通过某命令形式提供
+- **内部命令**：由shell自带的，而且通过某命令形式提供
 - help 内部命令列表
 - enable cmd 启用内部命令
 - enable –n cmd 禁用内部命令
 - enable –n  查看所有禁用的内部命令
-**外部命令**：在文件系统路径下有对应的可执行程序文件
+- **外部命令**：在文件系统路径下有对应的可执行程序文件
 查看路径：which -a |--skip-alias; whereis
-**命令的读取顺序**：
+- **命令的读取顺序**：
 - alias（别名） =1、hash表(缓存)  2、$PATH
 - hash常见用法
 hash 显示hash缓存
@@ -148,7 +148,7 @@ hash –p path name 将命令全路径path起别名为name
 hash –t name 打印缓存中name的路径
 hash –d name 清除name缓存
 hash –r 清除缓存
-**命令别名**
+- **命令别名**
 - 显示当前shell进程所有可用的命令别名
 `alias`
 - 定义别名NAME，其相当于执行命令VALUE
@@ -170,7 +170,7 @@ unalias[-a] name [name ...]
 `‘ALIASNAME’`
 `command ALIASNAME`
 `/path/commmand`
-**命令格式**
+- **命令格式**
 - **`COMMAND [OPTIONS...] [ARGUMENTS...]`**
 - 选项：用于启用或关闭命令的某个或某些功能
 - 短选项：-c 例如：-l, -h
@@ -181,7 +181,7 @@ unalias[-a] name [name ...]
 取消和结束命令执行：Ctrl+c，Ctrl+d
 多个命令可以用 `;` 符号分开
 一个命令可以用 `\` 分成多行
-**命令行扩展、被括起来的集合**
+- **命令行扩展、被括起来的集合**
 - 命令行扩展：$( ) 或``
 - 把一个命令的输出打印给另一个命令的参数
 `echo"Thissystem'snameis$(hostname) "
