@@ -138,19 +138,20 @@ Shell命令分为内部命令和外部命令
 - enable cmd 启用内部命令
 - enable –n cmd 禁用内部命令
 - enable –n  查看所有禁用的内部命令
-- 
+
 4.**外部命令**：在文件系统路径下有对应的可执行程序文件
 查看路径：which -a |--skip-alias; whereis
 
 5.**命令的读取顺序**：
-- alias（别名） =1、hash表(缓存)  2、$PATH
-- hash常见用法
-hash 显示hash缓存
-hash –l 显示hash缓存，可作为输入使用
-hash –p path name 将命令全路径path起别名为name
-hash –t name 打印缓存中name的路径
-hash –d name 清除name缓存
-hash –r 清除缓存
+- alias=hash表(缓存)---$PATH
+| hash | 常见用法 |
+| ---- | ---- |
+| hash | 显示hash缓存 |
+| hash –l | 显示hash缓存，可作为输入使用 |
+| hash –p | path name 将命令全路径path起别名为name |
+| hash –t | name 打印缓存中name的路径 |
+| hash –d | name 清除name缓存 |
+| hash –r | 清除缓存 |
 
 6.**命令别名**
 - 显示当前shell进程所有可用的命令别名
@@ -205,7 +206,7 @@ echo {000..20..2}
 9.**tab键补全命令**
 - 命令补全:用户给定的字符串只有一条惟一对应的命令，直接补全;否则，再次Tab会给出列表
 - 路径补全:如果惟一：则直接补全;否则：再次Tab给出列表
-- 
+ 
 10.**命令行历史**
 - 保存你输入的命令历史。可以用它来重复执行命令
 - 登录shell时，会读取命令历史文件中记录下的命令"~/.bash_history"
