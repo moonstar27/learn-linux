@@ -10,7 +10,7 @@ Linux系统作为一个偏重效率及稳定性的操作系统，命令行模式
 以我们学的Centos为例，目前已经发展到了最新的7.5版本，但是实际生产环境中肯定还会有大量的Centos6系统在运行。
 这两个版本的许多常用命令和服务都会有不同，所以需要在学习的过程中注意两者差别。
 
-> Centos6发布于2011年，完全更新到2017年第2季度，维护更新到2020年11月30号。
+> Centos6发布于2011年，完全更新到2017年第2季度，维护更新到2020年11月30号
 > Centos7发布于2014年，完全更新到2020年第4季度，维护更新到2024年6月30号
 [参考Centos官方网站](https://wiki.centos.org/About/Product)
 
@@ -22,7 +22,7 @@ Linux系统作为一个偏重效率及稳定性的操作系统，命令行模式
 
 1.注意提前规划好系统磁盘所需的空间
 必要的分区:  
-- / 根 合理分配 作为Linux系统最重要的分区，应留有足够的空间已满足后续的使用。
+- / 根 合理分配 作为Linux系统最重要的分区，应留有足够的空间已满足后续的使用
 - /boot 启动分区 作为系统引导分区使用
 - swap 交换分区  swap类似windows的虚拟内存/page file，内存小于2G时，设置为内存的2倍；内存大于或等于2G时，设置为2G
 - **用于正式生产的服务器，切记必须把数据盘单独分区，防止系统出问题时，保证数据的完整性。
@@ -42,6 +42,7 @@ Linux系统作为一个偏重效率及稳定性的操作系统，命令行模式
 4.默认安装模式是：Minimal(最小) 实际生产环境中常用，作为学习环境可选择Desktop (桌面)
 
 ### Linux系统基础 
+
 1.系统编码
 - ASCII码：计算机内部，所有信息最终都是一个二进制值。
 - Unicode：用于表示世界上所有语言中的所有字符。
@@ -90,9 +91,9 @@ Shell是一种高级程序设计语言
 ![Shell](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537678381680&di=f70171c636a3e144b70e9564a69a8902&imgtype=0&src=http%3A%2F%2Fwww.tiejiang.org%2Fwp-content%2Fuploads%2F2013%2F07%2F12.jpg%3FimageView2%2F1%2Fw%2F350%2Fh%2F250%2Fq%2F100)
 - GNU Bourne-Again Shell(bash)是GNU计划中重要的工具软件之一，目前也是Linux标准的shell，与sh兼容
 entOS默认使用
-显示当前使用的shell
+- 显示当前使用的shell
 **`echo ${SHELL}`**
-显示当前系统使用的所有shell
+- 显示当前系统使用的所有shell
 **`cat /etc/shells`**
 
 ### 系统日期和时间
@@ -100,11 +101,12 @@ entOS默认使用
 1.inux的两种时钟
 系统时钟：由Linux内核通过CPU的工作频率进行的
 硬件时钟：主板
+
 2.相关命令
 - date 显示和设置系统时间
-date +%s
-date -d @1509536033 Wed Nov  1 19:33:53 CST 2017
-date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
+- date +%s
+- date -d @1509536033 Wed Nov  1 19:33:53 CST 2017
+- date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 - hwclock，clock: 显示硬件时钟
 **-s, --hctosys以硬件时钟为准，校正系统时钟**
 **-w, --systohc以系统时钟为准，校正硬件时钟**
@@ -120,14 +122,15 @@ date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 '#管理员'
 '$普通用户'
 - 显示提示符格式
-[root@localhost~]#echo $PS1
-修改提示符格式
-`PS1="\[\e[1;5;41;33m\][\u@\h \W]\\$\[\e[0m\]"`
+[root@localhost~]
+- #echo $PS1
+- 修改提示符格式
+`PS1="\[\e[1;5;41;33m\][\u@\h \W]\\$\[\e[0m\]"
 \e \033\u 当前用户
 \h 主机名简称\H 主机名
 \w 当前工作目录\W 当前工作目录基名
 \t 24小时时间格式\T 12小时时间格式
-\! 命令历史数\# 开机后命令历史数
+\! 命令历史数\# 开机后命令历史数`
 
 2.**Shell命令**：
 Shell命令分为内部命令和外部命令
@@ -144,6 +147,7 @@ Shell命令分为内部命令和外部命令
 
 5.**命令的读取顺序**：
 - alias=hash表(缓存)---$PATH
+
 | hash | 常见用法 |
 | ---- | ---- |
 | hash | 显示hash缓存 |
@@ -159,7 +163,7 @@ Shell命令分为内部命令和外部命令
 - 定义别名NAME，其相当于执行命令VALUE
 `alias NAME='VALUE'`
 - 在命令行中定义的别名，仅对当前shell进程有效
-如果想永久有效，要定义在配置文件中
+- 如果想永久有效，要定义在配置文件中
 仅对当前用户：~/.bashrc
 对所有用户有效：/etc/bashrc
 - 编辑配置给出的新配置不会立即生效
@@ -168,7 +172,7 @@ bash进程重新读取配置文件
 `. /path/to/config_file`
 - 撤消别名：unalias
 unalias[-a] name [name ...]
--a 取消所有别名
+- -a 取消所有别名
 - 如果别名同原命令同名，如果要执行原命令，可使用
 `\ALIASNAME`
 `“ALIASNAME”`
