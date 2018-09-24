@@ -62,7 +62,7 @@ Linux系统作为一个偏重效率及稳定性的操作系统，命令行模式
 - 虚拟终端(tty：teletypewriters，/dev/tty# #为[1-6])
 tty可有n个，**Ctrl+Alt+F[1-6]可快读切换终端界面**
 - 图形终端（/dev/tty7 ）startx, xwindows 
-CentOS 6: Ctrl + Alt + F7
+CentOS 6: `Ctrl + Alt + F7`
 CentOS 7: 在哪个终端启动，即位于哪个虚拟终端
 runlevel 查看运行级别
 init 3 命令行模式
@@ -106,8 +106,8 @@ entOS默认使用
 
 2.相关命令
 - date 显示和设置系统时间
-- date +%s
-- date -d @1509536033 Wed Nov  1 19:33:53 CST 2017
+- `date +%s`
+- `date -d @1509536033` Wed Nov  1 19:33:53 CST 2017
 - date  MMDDhhmmYYYY.ss  月天小时分钟年.秒
 - hwclock，clock: 显示硬件时钟
 **-s, --hctosys以硬件时钟为准，校正系统时钟**
@@ -140,7 +140,7 @@ Shell命令分为内部命令和外部命令
 查看路径：which -a |--skip-alias; whereis
 
 5.**命令的读取顺序**：
-- alias=hash表(缓存)---$PATH
+- alias---builtin--hash表(缓存)---$PATH
 
 | hash | 常见用法 |
 | ---- | ---- |
@@ -188,17 +188,18 @@ unalias[-a] name [name ...]
 
 8.**命令行扩展、被括起来的集合**
 - 命令行扩展：$( ) 或``
-- 把一个命令的输出打印给另一个命令的参数
-`echo"Thissystem'snameis$(hostname) "
-Thissystem'snameisserver1.example.com
-echo "iam `whoami`"
-"iam root"`
+- 把一个命令的输出打印给另一个命令的参数  
+echo"Thissystem'snameis$(hostname)"   
+This system 'snameisserver1.example.com'       
+echo "iam `whoami`"   
+"iam root"
 - 括号扩展：{ }
-打印重复字符串的简化形式
-echofile{1,3,5} 结果为：file1file3file5
-rm-ffile{1,3,5}
-echo {1..10}
-echo {a..z}
+打印重复字符串的简化形式   
+echofile{1,3,5}   
+结果为：file1file3file5  
+rm-ffile{1,3,5}   
+echo {1..10}   
+echo {a..z}  
 echo {000..20..2}
 
 9.**tab键补全命令**
