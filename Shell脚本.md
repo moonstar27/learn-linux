@@ -310,7 +310,7 @@ read 从标准输入中读取值,给每个单词分配一个变量
 
 登陆方式 | 说明 | 执行顺序 | 配置文件类型
 ---|---|---|---
-交互式登录 | 直接通过终端输入账号密码登录 | 执行顺序:/etc/profile --> /etc/profile.d/*.sh --> ~/.bash_profile -->~/.bashrc --> /etc/bashrc | profile类:全局 /etc/profile, /etc/profile.d/*.sh、 个人 ~/.bash_profile
+交互式登录 | 直接通过终端输入账号密码登录 | 执行顺序:/etc/profile --> /etc/profile.d/*.sh --> `~/.bash_profile` -->`~/.bashrc` --> /etc/bashrc | profile类:全局 /etc/profile, /etc/profile.d/*.sh、 个人 ~/.bash_profile
 非交互式登录 | (1)su UserName、(2)图形界面下打开的终端、(3)执行脚本、(4)任何其它的。|执行顺序: /etc/profile.d/*.sh --> /etc/bashrc -->~/.bashrc | bashrc类:全局/etc/bashrc、个人~/.bashrc
 
 修改profile和bashrc文件后需生效  
