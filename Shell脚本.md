@@ -8,7 +8,7 @@ bash ***.sh运行脚本
 顺序执行  
 循环执行  
 选择执行  
-- **==远程执行脚本==**
+- **远程执行脚本**
 ```
 将脚本scp xxx.sh ip:/var/www/html/拷贝到一台主机的网页目录下
 访问这台主机的页面下载脚本 service httpd start 
@@ -72,16 +72,16 @@ $cmd 可以调用命令 实现别名的效果
 echo $$  
 (echo $BASHPID)小括号子进程中和$$不同(更准确)    
 
-==**普通变量只对当前进程有效果**==  
+**普通变量只对当前进程有效果**  
 
 export 设置环境变量 不受父子进程影响  
 
 (umask 026;touch /data/f1.log);touch /data/f2.log  
 640 644  
-**==()会开启子shell,不影响默认shell设置==**   
+**()会开启子shell,不影响默认shell设置**   
 name=m34;(echo $name;name=net34;echo $name);echo $name  
 m34 net34 m34  
-name=m34;{ echo $name;name=net34;echo $name };echo $name  ==注意空格==  
+name=m34;{ echo $name;name=net34;echo $name };echo $name  **注意空格**  
 m34 net34 net34  
 {}不开启子进程
 
@@ -92,7 +92,7 @@ $_ 上一个命令的最后一个字符串
 - 只读变量  
 readonly
 - 位置变量  
-$1 $2 $3...**==${10}==**作为一整需要{}表示  
+$1 $2 $3...**${10}**作为一整需要{}表示  
 系统默认变量  
 ip.sh eth0  eth1 $1=eth0 $2=eth1  
 
@@ -108,7 +108,7 @@ echo "the scriptname is `basename $0`"
 ```
 `$*` 多脚本调用时会出现不能准确取出特定参数的情况，会认为前面的结果为一个整体参数  
 `$@`多脚本调用时,每个参数独立可用  
-`$@ $*` ==只在被双引号包起来的时候才会有差异==  
+`$@ $*` **只在被双引号包起来的时候才会有差异**  
 `$?`只保存最后一个命令的结果  
 返回0 表示成功 其它数字失败 1-255  
 `ping -c1 -w1 IP` c次数 w时间  
@@ -214,7 +214,7 @@ age=26; [ "$age" -gt 18 ] && echo "too old" || echo "young" 判断age大于18，
 `>` | ascii码是否大于ascii码
 `<` | 是否小于
 ！= | 是否不等于
-=～ | 左侧字符串是否能够被右侧的PATTERN所匹配。注意: 此表达式一般用于[[]]中;**==扩展的正则表达式==**
+=～ | 左侧字符串是否能够被右侧的PATTERN所匹配。注意: 此表达式一般用于[[]]中;**扩展的正则表达式**
 -z | 字符串是否为空,空为真,不空为假
 -n | 字符串是否不空,不空为真,空为假
 **文件测试** | 
@@ -250,17 +250,17 @@ age=26; [ "$age" -gt 18 ] && echo "too old" || echo "young" 判断age大于18，
 **==-a==** | EXPRESSION1 -a EXPRESSION2 并且
 **==-o==** | EXPRESSION1 -o EXPRESSION2 或者
 ! | 取反 EXPRESSION 
-==注意== | [[ ]] 双中括号不支持-a -o
+**注意** | [[ ]] 双中括号不支持-a -o
 例如 | [ -z “$HOSTNAME” -o $HOSTNAME "=="localhost.localdomain" ] \&& hostname www.server ==注意中括号的空格==
 例如 | [ -f /bin/cat -a -x /bin/cat ] && cat /etc/fstab 是否是普通文件并且拥有执行权限，如果是就打开/etc/fstab
 **[[ == ]]  使用通配符和正则时使用**  
-==\==后面可用通配符（不需加引号）  =~后面可用正则表达式（不需加引号） 扩展正则表达式==  
+**\==后面可用通配符（不需加引号）  =~后面可用正则表达式（不需加引号） 扩展正则表达式**  
 **()可以在子进程中执行命令**  
 **{}只在当前shell中执行命令**  
 
 ## Read 提示输入命令
 使用read来把输入值分配给一个或多个shell变量  
-**==建议每次一个变量==**
+**建议每次一个变量**
 ```
 read name age  
 nie 20  
